@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>牛牛主题预览</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header p {
+      color: #94a3b8;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .media-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #0f172a;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .media-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
+    }
+    .media-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+      background: #000;
+    }
+    .media-wrap.playing img { display: none; }
+    .media-wrap.playing video { display: block; }
+    .play-hint {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .play-hint::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 0 8px 14px;
+      border-color: transparent transparent transparent #fff;
+      margin-left: 3px;
+    }
+    .media-wrap.playing .play-hint { opacity: 0; }
+    .card-body {
+      padding: 16px;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 4px;
+    }
+    .card-meta {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: #334155;
+      color: #cbd5e1;
+    }
+    .empty {
+      text-align: center;
+      padding: 48px 20px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>牛牛主题预览</h1>
+    <p>点击封面播放视频 · 一期除外</p>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <script>
+    const folders = [
+      { name: "牛牛伊冯" },
+      { name: "牛牛余烬" },
+      { name: "牛牛佩丽卡" },
+      { name: "牛牛别礼" },
+      { name: "牛牛卡契尔" },
+      { name: "牛牛卡缪" },
+      { name: "牛牛埃特拉" },
+      { name: "牛牛大潘" },
+      { name: "牛牛安塔尔" },
+      { name: "牛牛庄方宜" },
+      { name: "牛牛弧光" },
+      { name: "牛牛弭弗" },
+      { name: "牛牛昼雪" },
+      { name: "牛牛汤汤" },
+      { name: "牛牛洁尔佩塔" },
+      { name: "牛牛洛茜" },
+      { name: "牛牛狼卫" },
+      { name: "牛牛秋栗" },
+      { name: "牛牛管理员-男" },
+      { name: "牛牛管理员-女" },
+      { name: "牛牛艾尔黛拉" },
+      { name: "牛牛艾维文娜" },
+      { name: "牛牛莱万汀" },
+      { name: "牛牛萤石" },
+      { name: "牛牛赛希" },
+      { name: "牛牛阿列什" },
+      { name: "牛牛陈" },
+      { name: "牛牛骏卫" },
+      { name: "牛牛黎风" }
+    ];
+
+    const grid = document.getElementById("grid");
+    folders.forEach(f => {
+      const thumb = `./${encodeURIComponent(f.name)}/thumbnail.webp`;
+      const video = `./${encodeURIComponent(f.name)}/wallpaper.mp4`;
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="media-wrap" data-video="${video}">
+          <img src="${thumb}" alt="${f.name}" loading="lazy" onerror="this.style.display='none'">
+          <video preload="none" playsinline></video>
+          <div class="play-hint"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-title">${f.name}</div>
+          <div class="card-meta">wallpaper.mp4</div>
+          <span class="badge">点击播放</span>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    document.querySelectorAll(".media-wrap").forEach(wrap => {
+      wrap.addEventListener("click", () => {
+        const video = wrap.querySelector("video");
+        if (wrap.classList.contains("playing")) {
+          video.pause();
+          video.currentTime = 0;
+          wrap.classList.remove("playing");
+          return;
+        }
+        document.querySelectorAll(".media-wrap.playing").forEach(w => {
+          w.classList.remove("playing");
+          w.querySelector("video").pause();
+        });
+        video.src = wrap.dataset.video;
+        video.load();
+        video.play().then(() => wrap.classList.add("playing")).catch(() => {});
+      });
+    });
+  </script>
+</body>
+</html>
