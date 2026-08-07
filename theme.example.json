@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "name": "明日方舟终末地主题库",
+    "desc": "高品质主题集合，涵盖自然、动漫、科技等多种风格",
+    "from": "制作者/提供者"
+  },
+  "themes": [
+    {
+      "ID": 1,
+      "标题": "明日方舟终末地-萤石",
+      "t0": "http://123.com/牛牛主题/牛牛萤石/thumbnail.webp",
+      "t1": "http://123.com/牛牛主题/牛牛萤石/loginLogo.png",
+      "t2": "http://123.com/牛牛主题/牛牛萤石/loginBg.mp4",
+      "t3": "http://123.com/牛牛主题/牛牛萤石/deviceLogo.svg",
+      "t4": "http://123.com/牛牛主题/牛牛萤石/wallpaper.mp4",
+      "t5": "http://123.com/牛牛主题/牛牛萤石/favicon.png"
+    },
+    {
+      "ID": 2,
+      "标题": "明日方舟终末地-余烬",
+      "t0": "http://123.com/牛牛主题/牛牛余烬/thumbnail.webp",
+      "t1": "http://123.com/牛牛主题/牛牛余烬/loginLogo.png",
+      "t2": "http://123.com/牛牛主题/牛牛余烬/loginBg.mp4",
+      "t3": "http://123.com/牛牛主题/牛牛余烬/deviceLogo.svg",
+      "t4": "http://123.com/牛牛主题/牛牛余烬/wallpaper.mp4",
+      "t5": "http://123.com/牛牛主题/牛牛余烬/favicon.png"
+    },
+    {
+      "ID": 3,
+      "标题": "明日方舟终末地-昼雪",
+      "t0": "http://123.com/牛牛主题/牛牛昼雪/thumbnail.webp",
+      "t1": "http://123.com/牛牛主题/牛牛昼雪/loginLogo.png",
+      "t2": "http://123.com/牛牛主题/牛牛昼雪/loginBg.mp4",
+      "t3": "http://123.com/牛牛主题/牛牛昼雪/deviceLogo.svg",
+      "t4": "http://123.com/牛牛主题/牛牛昼雪/wallpaper.mp4",
+      "t5": "http://123.com/牛牛主题/牛牛昼雪/favicon.png"
+    }
+  ]
+}
