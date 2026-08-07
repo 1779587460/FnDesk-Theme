@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FnDesk Theme - File Browser</title>
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="./sitemap.xml">
+  <link rel="preload" href="./theme.json" as="fetch" crossorigin>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -336,7 +338,14 @@
       const folder = folders.find(f => f.name === folderName);
       if (!folder) return;
 
-      // Check which files exist
+      // Show loading state immediately
+      content.innerHTML = `
+        <div class="empty-state">
+          <div class="icon">⏳</div>
+          <div>Loading...</div>
+        </div>
+      `;
+
       const files = [];
       const possibleFiles = [
         "wallpaper.mp4",
@@ -349,18 +358,25 @@
         "download.png"
       ];
 
-      for (const fileName of possibleFiles) {
+      // Check which files exist
+      const promises = possibleFiles.map(async (fileName) => {
         const path = `./${encodeURIComponent(folderName)}/${fileName}`;
         try {
           const res = await fetch(path, { method: "HEAD" });
           if (res.ok) {
             const size = parseInt(res.headers.get("content-length") || "0");
-            files.push({ name: fileName, size, path });
+            return { name: fileName, size, path };
           }
         } catch (e) {
           // ignore
         }
-      }
+        return null;
+      });
+
+      const results = await Promise.all(promises);
+      results.forEach(file => {
+        if (file) files.push(file);
+      });
 
       content.innerHTML = "";
 
