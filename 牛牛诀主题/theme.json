@@ -297,6 +297,16 @@
     },
     {
       "ID": 30,
+      "标题": "明日方舟终末地-埃特拉",
+      "t0": "./牛牛埃特拉/thumbnail.webp",
+      "t1": "./牛牛埃特拉/loginLogo.png",
+      "t2": "./牛牛埃特拉/loginBg.mp4",
+      "t3": "./牛牛埃特拉/deviceLogo.svg",
+      "t4": "./牛牛埃特拉/wallpaper.mp4",
+      "t5": "./牛牛埃特拉/favicon.png"
+    },
+    {
+      "ID": 31,
       "标题": "明日方舟终末地-萤石",
       "t0": "./牛牛萤石/thumbnail.webp",
       "t1": "./牛牛萤石/loginLogo.png",
