@@ -1,10 +1,10 @@
 ﻿{
   "ID": 9,
   "标题": "明日方舟终末地-牛牛庄方宜",
-  "t0": "./thumbnail.jpg",
+  "t0": "./thumbnail.webp",
   "t1": "./loginLogo.png",
-  "t2": "./loginBg.jpg",
+  "t2": "./loginBg.mp4",
   "t3": "./deviceLogo.svg",
-  "t4": "./wallpaper.jpg",
+  "t4": "./wallpaper.mp4",
   "t5": "./favicon.png"
 }

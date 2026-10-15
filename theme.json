@@ -334,6 +334,26 @@
       "t3": "./牛牛噗切娜/deviceLogo.svg",
       "t4": "./牛牛噗切娜/wallpaper.mp4",
       "t5": "./牛牛噗切娜/favicon.png"
+    },
+    {
+      "ID": 34,
+      "标题": "明日方舟终末地-祀",
+      "t0": "./牛牛祀/thumbnail.webp",
+      "t1": "./牛牛祀/loginLogo.png",
+      "t2": "./牛牛祀/loginBg.mp4",
+      "t3": "./牛牛祀/deviceLogo.svg",
+      "t4": "./牛牛祀/wallpaper.mp4",
+      "t5": "./牛牛祀/favicon.png"
+    },
+    {
+      "ID": 35,
+      "标题": "明日方舟终末地-明河",
+      "t0": "./牛牛明河/thumbnail.webp",
+      "t1": "./牛牛明河/loginLogo.png",
+      "t2": "./牛牛明河/loginBg.mp4",
+      "t3": "./牛牛明河/deviceLogo.svg",
+      "t4": "./牛牛明河/wallpaper.mp4",
+      "t5": "./牛牛明河/favicon.png"
     }
   ]
 }

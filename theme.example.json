@@ -334,6 +334,26 @@
       "t3": "http://fndesk-theme-eo.1020300.xyz/牛牛噗切娜/deviceLogo.svg",
       "t4": "http://fndesk-theme-eo.1020300.xyz/牛牛噗切娜/wallpaper.mp4",
       "t5": "http://fndesk-theme-eo.1020300.xyz/牛牛噗切娜/favicon.png"
+    },
+    {
+      "ID": 34,
+      "标题": "明日方舟终末地-祀",
+      "t0": "http://fndesk-theme-eo.1020300.xyz/牛牛祀/thumbnail.webp",
+      "t1": "http://fndesk-theme-eo.1020300.xyz/牛牛祀/loginLogo.png",
+      "t2": "http://fndesk-theme-eo.1020300.xyz/牛牛祀/loginBg.mp4",
+      "t3": "http://fndesk-theme-eo.1020300.xyz/牛牛祀/deviceLogo.svg",
+      "t4": "http://fndesk-theme-eo.1020300.xyz/牛牛祀/wallpaper.mp4",
+      "t5": "http://fndesk-theme-eo.1020300.xyz/牛牛祀/favicon.png"
+    },
+    {
+      "ID": 35,
+      "标题": "明日方舟终末地-明河",
+      "t0": "http://fndesk-theme-eo.1020300.xyz/牛牛明河/thumbnail.webp",
+      "t1": "http://fndesk-theme-eo.1020300.xyz/牛牛明河/loginLogo.png",
+      "t2": "http://fndesk-theme-eo.1020300.xyz/牛牛明河/loginBg.mp4",
+      "t3": "http://fndesk-theme-eo.1020300.xyz/牛牛明河/deviceLogo.svg",
+      "t4": "http://fndesk-theme-eo.1020300.xyz/牛牛明河/wallpaper.mp4",
+      "t5": "http://fndesk-theme-eo.1020300.xyz/牛牛明河/favicon.png"
     }
   ]
 }
